@@ -1,0 +1,38 @@
+#:kivy 1.0
+#:import utils kivy.utils
+<Frame>
+    searchbox: searchbox
+    body: body
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#F3F3F3')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 30
+        padding: 50
+        
+        TextInput:
+            id: searchbox
+            hint_text: "Enter query to search"
+            text: ""
+            font_size: '20dp'
+            multiline: False
+            foreground_color: '#000000'
+            size_hint: (0.8,0.1)
+            pos_hint: {'center_x': 0.5}
+            on_text_validate: root.capture()
+
+      
+        TextInput:
+            id: body
+            text: ""
+            hint_text: "Result will be displayed here"
+            font_size: 20
+            foreground_color: '#333333'
+        
+
+
